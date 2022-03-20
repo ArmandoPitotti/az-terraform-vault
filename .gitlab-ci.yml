@@ -1,0 +1,9 @@
+image: cs-docker-snapshots-local.esisoj70.emea.nsn-net.net/cs/common/cli/devops-cli:latest
+
+stages:
+  - format
+
+check format:
+  stage: format
+  script:
+    - terraform fmt -check=true
