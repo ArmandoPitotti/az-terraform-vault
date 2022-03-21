@@ -29,6 +29,8 @@ resource "azurerm_key_vault" "vault" {
   enabled_for_deployment          = true
   enabled_for_disk_encryption     = true
   enabled_for_template_deployment = true
+  purge_protection_enabled        = var.purge_protection_enabled
+  soft_delete_retention_days      = var.soft_delete_retention_days
 
   network_acls {
     default_action             = "Deny"
@@ -39,15 +41,6 @@ resource "azurerm_key_vault" "vault" {
 
   tags = local.tags // in the NVDC enviroment some tags are mandatory
 
-}
-
-# https://github.com/terraform-providers/terraform-provider-azurerm/issues/1329
-resource "null_resource" "options" {
-  provisioner "local-exec" {
-    command = <<EOT
-      az keyvault update --name "${azurerm_key_vault.vault.name}" --enable-purge-protection --enable-soft-delete
-    EOT
-  }
 }
 
 resource "azurerm_monitor_diagnostic_setting" "vault-monitor" {
