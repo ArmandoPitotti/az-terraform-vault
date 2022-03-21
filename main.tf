@@ -29,8 +29,8 @@ resource "azurerm_key_vault" "vault" {
   enabled_for_deployment          = true
   enabled_for_disk_encryption     = true
   enabled_for_template_deployment = true
-  purge_protection_enabled        = var.purge_protection_enabled
-  soft_delete_retention_days      = var.soft_delete_retention_days
+  purge_protection_enabled        = var.vault_purge_protection_enabled
+  soft_delete_retention_days      = var.vault_soft_delete_retention_days
 
   network_acls {
     default_action             = "Deny"

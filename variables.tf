@@ -55,12 +55,12 @@ variable "private_link_subnet" {
   default = null
 }
 
-variable "purge_protection_enabled" {
+variable "vault_purge_protection_enabled" {
   type = bool
   description = "Prevent from remove keyvault when soft-delete is enabled. By default Soft-delete is always enabled(new behavior from 08/20/2021)"
   default = true
 }
-variable "soft_delete_retention_days"{
+variable "vault_soft_delete_retention_days"{
   type = number
   description = "From 7 days to 90 days"
   default = 7
