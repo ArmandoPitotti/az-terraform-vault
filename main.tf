@@ -115,8 +115,6 @@ resource "azurerm_key_vault_access_policy" "manage-access" {
     "Restore",
     "Purge"
   ]
-
-  depends_on = [null_resource.options]
 }
 
 resource "azurerm_key_vault_access_policy" "access" {
@@ -148,8 +146,6 @@ resource "azurerm_key_vault_access_policy" "access" {
     "GetIssuers",
     "ListIssuers"
   ]
-
-  depends_on = [null_resource.options]
 }
 
 resource "azurerm_key_vault_key" "crypt_key" {
