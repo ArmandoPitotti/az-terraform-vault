@@ -165,7 +165,7 @@ resource "azurerm_key_vault_key" "crypt_key" {
     "wrapKey",
   ]
 
-  depends_on = [azurerm_key_vault_access_policy.manage-access, null_resource.options]
+  depends_on = [azurerm_key_vault_access_policy.manage-access]
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
